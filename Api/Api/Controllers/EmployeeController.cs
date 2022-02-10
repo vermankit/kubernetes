@@ -19,7 +19,6 @@ namespace Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [Route("[action]")]
         public IActionResult GetAllEmployees()
         {
             try
