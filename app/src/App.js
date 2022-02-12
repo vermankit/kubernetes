@@ -3,10 +3,15 @@ import "./App.css";
 
 function App() {
   let [emp, setEmp] = useState([]);
+  const api = process.env.REACT_APP_API;
 
   useEffect(() => {
-    fetch(process.env.REACT_APP_API)
-      .then((res) => setEmp(res.json()))
+    fetch(`${api}/Employee`)
+      .then((res) => res.json())
+      .then(function (parsedData) {
+        console.log(parsedData);
+        setEmp(parsedData);
+      })
       .catch((err) => console.log(err));
   }, []);
 
@@ -15,9 +20,9 @@ function App() {
       <table>
         <thead>
           <tr>
-            <th>Company</th>
-            <th>Contact</th>
-            <th>Country</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>designation</th>
           </tr>
         </thead>
         <tbody>
