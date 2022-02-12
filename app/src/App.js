@@ -13,7 +13,7 @@ function App() {
         setEmp(parsedData);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [api]);
 
   return (
     <div className="App">
