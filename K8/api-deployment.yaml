@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
     labels:
-    service: api
+     service: api
   name: api
 spec:
   replicas: 1
