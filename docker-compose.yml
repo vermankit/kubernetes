@@ -40,5 +40,5 @@ networks:
         driver: bridge  
 
 volumes:
-    myapp:
+    app:
 
