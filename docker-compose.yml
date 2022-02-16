@@ -10,6 +10,8 @@ services:
       NODE_ENV: production
     ports:
       - 3000:3000
+    networks:
+            - app-net
   api:
     image: api
     build:
@@ -19,9 +21,24 @@ services:
       - 5000:5000
     depends_on:
             - db
+    networks:
+            - app-net
   db:
     image: "mcr.microsoft.com/mssql/server"
     environment:
             SA_PASSWORD: "Your_password123"
-            ACCEPT_EULA: "Y"  
+            ACCEPT_EULA: "Y"
+    ports:
+       - 1433:1433
+    volumes:
+            - app:/home/app/data
+    networks:
+            - app-net
+
+networks:
+    app-net:
+        driver: bridge  
+
+volumes:
+    myapp:
 

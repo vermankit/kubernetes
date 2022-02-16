@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  labels:
+    service: db
+  name: db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: db
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        network/app-net: "true"
+        service: db
+    spec:
+      containers:
+        - env:
+            - name: ACCEPT_EULA
+              value: "Y"
+            - name: SA_PASSWORD
+              value: Your_password123
+          image: mcr.microsoft.com/mssql/server
+          name: db
+          ports:
+            - containerPort: 1433
+          resources: {}
+          volumeMounts:
+            - mountPath: /home/app/data
+              name: app
+      restartPolicy: Always
+      volumes:
+        - name: app
+          persistentVolumeClaim:
+            claimName: app
+status: {}

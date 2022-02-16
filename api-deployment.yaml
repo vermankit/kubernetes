@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    labels:
+    service: api
+  name: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: api
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        network/app-net: "true"
+        service: api
+    spec:
+      containers:
+        - image: api
+          name: api
+          ports:
+            - containerPort: 5000
+          resources: {}
+      restartPolicy: Always
+status: {}
