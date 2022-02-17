@@ -6,7 +6,7 @@ metadata:
     app.service: api
   name: api
 spec:
-  replicas: 1
+  replicas: 4
   selector:
     matchLabels:
       app.service: api
