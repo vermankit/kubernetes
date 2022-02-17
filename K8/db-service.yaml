@@ -6,7 +6,7 @@ metadata:
     kompose.version: 1.26.1 (a9d05d509)
   creationTimestamp: null
   labels:
-    io.kompose.service: db
+    app.service: db
   name: db
 spec:
   ports:
@@ -14,6 +14,6 @@ spec:
       port: 1433
       targetPort: 1433
   selector:
-    io.kompose.service: db
+    app.service: db
 status:
   loadBalancer: {}

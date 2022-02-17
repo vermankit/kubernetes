@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata:  
+metadata:
   creationTimestamp: null
   labels:
-    io.kompose.service: db
+    app.service: db
   name: db
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: db
+      app.service: db
   strategy:
     type: Recreate
   template:
-    metadata:      
+    metadata:
       creationTimestamp: null
       labels:
-        io.kompose.network/app-net: "true"
-        io.kompose.service: db
+        app.network/app-net: "true"
+        app.service: db
     spec:
       containers:
         - env:

@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
-metadata:    
+metadata:
   creationTimestamp: null
   labels:
-    io.kompose.service: api
+    app.service: api
   name: api
 spec:
   ports:
@@ -11,6 +11,6 @@ spec:
       port: 5000
       targetPort: 5000
   selector:
-    io.kompose.service: api
+    app.service: api
 status:
   loadBalancer: {}
