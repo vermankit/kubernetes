@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   app:
-    image: app
+    image: ${REGISTRY}/app
     build:
       context: app
       dockerfile: ./Dockerfile
@@ -13,7 +13,7 @@ services:
     networks:
             - app-net
   api:
-    image: api
+    image: ${REGISTRY}/api
     build:
       context: .
       dockerfile: Api/Dockerfile
@@ -24,7 +24,7 @@ services:
     networks:
             - app-net
   db:
-    image: "mcr.microsoft.com/mssql/server"
+    image: mcr.microsoft.com/mssql/server    
     environment:
             SA_PASSWORD: "Your_password123"
             ACCEPT_EULA: "Y"
