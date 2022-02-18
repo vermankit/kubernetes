@@ -20,7 +20,9 @@ function App() {
       <table>
         <thead>
           <tr>
-            <th>FirstName</th>
+            <th>
+              FirstName {api} {process.env.NODE_ENV}
+            </th>
             <th>LastName</th>
             <th>designation</th>
           </tr>

@@ -1,5 +1,5 @@
 FROM node:lts-alpine
-ENV NODE_ENV=production
+ENV NODE_ENV=production REACT_APP_API="http://localhost:5000/api"     
 WORKDIR /usr/src/app
 COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
 RUN npm install --production --silent && mv node_modules ../
