@@ -1,19 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: appsettings
+  name: appconfig
 data:
-  appsettings.json: |-
-    {
-      "Logging": {
-        "LogLevel": {
-          "Default": "Information",
-          "Microsoft": "Warning",
-          "Microsoft.Hosting.Lifetime": "Information"
-        }
-      },
-      "AllowedHosts": "*",
-      "ConnectionStrings": {
-        "ConStr": "Server=db;Database=master;User=sa;Password=Your_password123;" 
-      } 
-    }
+  api-url: "http://api:5000/api"
+  env: production

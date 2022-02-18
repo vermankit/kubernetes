@@ -21,9 +21,15 @@ spec:
       containers:
         - env:
             - name: NODE_ENV
-              value: production
+              valueFrom:
+                configMapKeyRef:
+                  name: appconfig
+                  key: env
             - name: REACT_APP_API
-              value: "http://api:5000/api"
+              valueFrom:
+                configMapKeyRef:
+                  name: appconfig
+                  key: api-url
           image: ankit123nagarro/app
           name: app
           ports:
