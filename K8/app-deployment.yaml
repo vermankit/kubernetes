@@ -23,7 +23,7 @@ spec:
             - name: NODE_ENV
               value: production
             - name: REACT_APP_API
-              value: "http://35.232.37.254:5000/api"
+              value: "http://api:5000/api"
           image: ankit123nagarro/app
           name: app
           ports:

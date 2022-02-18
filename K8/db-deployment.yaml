@@ -24,7 +24,10 @@ spec:
             - name: ACCEPT_EULA
               value: "Y"
             - name: SA_PASSWORD
-              value: Your_password123
+              valueFrom:
+                secretKeyRef:
+                  name: mysecret
+                  key: password
           image: mcr.microsoft.com/mssql/server
           name: db
           ports:

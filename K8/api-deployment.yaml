@@ -23,6 +23,13 @@ spec:
           name: api
           ports:
             - containerPort: 5000
+          volumeMounts:
+            - name: appsettings-volume
+              mountPath: /app/settings
           resources: {}
+      volumes:
+        - name: appsettings-volume
+          configMap:
+            name: appsettings
       restartPolicy: Always
 status: {}
