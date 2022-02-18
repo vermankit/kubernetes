@@ -35,7 +35,6 @@ function App() {
               </tr>
             );
           })}
-          {api} {process.env.NODE_ENV}
         </tbody>
       </table>
     </div>
