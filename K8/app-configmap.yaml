@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: appconfig
 data:
-  api-url: "http://api:5000/api"
+  api-url: "http://api:5000"
   env: production

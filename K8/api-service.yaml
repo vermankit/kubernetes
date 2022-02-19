@@ -6,7 +6,6 @@ metadata:
     app.service: api
   name: api
 spec:
-  type: LoadBalancer
   ports:
     - name: "5000"
       port: 5000

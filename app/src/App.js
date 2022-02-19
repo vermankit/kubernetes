@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-
+import axios from "axios";
 function App() {
   let [emp, setEmp] = useState([]);
   const api = process.env.REACT_APP_API;
 
   useEffect(() => {
+    axios.get(`${api}/Employee`).then((res) => {
+      const persons = res.data;
+      setEmp(persons);
+    });
+
     fetch(`${api}/Employee`)
       .then((res) => res.json())
       .then(function (parsedData) {

@@ -33,6 +33,27 @@ namespace Api
                 EmployeeLastName = "Verma",
                 Salary = 1000000000000
             });
+            AddNewType(new Employees()
+            {
+                Designation = "Engineer",
+                EmployeeFirstName = "Anu",
+                EmployeeLastName = "Verma",
+                Salary = 1000000000000
+            });
+            AddNewType(new Employees()
+            {
+                Designation = "Engineer",
+                EmployeeFirstName = "Aman",
+                EmployeeLastName = "Verma",
+                Salary = 1000000000000
+            });
+            AddNewType(new Employees()
+            {
+                Designation = "Engineer",
+                EmployeeFirstName = "Gaurav",
+                EmployeeLastName = "Verma",
+                Salary = 1000000000000
+            });
             _context.SaveChanges();
         }
 
