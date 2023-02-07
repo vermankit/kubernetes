@@ -17,6 +17,7 @@ namespace Api
 {
     public class Startup
     {
+        private string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -27,9 +28,19 @@ namespace Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddDbContext<EmpContext>(x => x.UseSqlServer(Configuration.GetConnectionString("ConStr")));
             services.AddScoped<IEmployeeService, EmployeeService>();
-            services.AddCors();
+            services.AddCors(options =>
+                {
+                    options.AddPolicy(name: MyAllowSpecificOrigins,
+                                    builder =>
+                                    {
+                                        builder.AllowAnyOrigin()
+                                       .AllowAnyHeader()
+                                       .AllowAnyMethod();
+                                    });
+                });
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -49,10 +60,7 @@ namespace Api
 
             app.UseRouting();
 
-            app.UseCors(x => x
-                .AllowAnyMethod()
-                .AllowAnyHeader()
-                .AllowAnyOrigin());
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseEndpoints(endpoints =>
             {

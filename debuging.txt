@@ -3,3 +3,5 @@ Check if api is working
 minikube ssh "docker container exec -it -u 0 66636345633b  /bin/bash
 
 apt update && apt install curl -y
+
+minikube dashboard
